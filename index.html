@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Componentes A-frame</title>
+</head>
+<body>
+    <script>
+        AFRAME.registerComponent('cambiodecolor', {
+            init: function(){
+                this.tick = AFRAME.utils.throttleTick(this.tick, 25000, this);
+            },
+            tick: function () {
+                var cubo = document.querySelector("#cubo")
+                console.log("Amarillo");
+                setTimeout(function(){
+                    cubo.setAttribute("color","blue");
+                    console.log("Azul");
+                },5000);
+                setTimeout(function(){
+                    cubo.setAttribute("color","red");
+                    console.log("Rojo");
+                },10000);
+                setTimeout(function(){
+                    cubo.setAttribute("color","green");
+                    console.log("Verde");
+                },15000);
+                setTimeout(function(){
+                    cubo.setAttribute("color","orange");
+                    console.log("Naranja");
+                },20000);
+                setTimeout(function(){
+                    cubo.setAttribute("color","yellow");
+                },25000);
+            }
+        });
+    </script>
+    <a-scene>
+        <a-box id ="cubo" position="0 1 -3" cambiodecolor color="yellow"></a-box>
+    </a-scene>
+</body>
+</html>
